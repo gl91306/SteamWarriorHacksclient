@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stemwarrior Hackathon Project</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Tailwind CSS  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Vertical Nav CSS  */
+    .vertical-nav {
+      min-width: 15rem;
+      width: 15rem;
+      height: 100vh;
+      position: fixed;
+      top: -20;
+      left: 50;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s;
+      z-index: -1;
+    }
+
+    .modes_Btn {
+      background: lightblue;
+    }
+
+    .modes_Btn:focus{
+       background: #1d4ed8;
+       color: white;
+    }
+
+  </style>
+
+</head>
+<body class="bgcolor-[#EAE7DC]" style="background-color:#EAE7DC">
+
+    <header class="p-2">
+        <nav class="">
+            <ul class="p-2 m-0 overflow-hidden list-none p-2 bg-gradient-to-r from-pink-500 to-red-500 rounded-lg shadow-xl">
+                <li class="float-left text-2xl font-bold capitalize" style="text-align:center;">AAEU: Assistive Application for Emergency Use</li>
+                <img class = "float-left" src="https://i.ibb.co/jvTSPvj/local1-removebg-preview.png" alt="AAEU-Logo" border="0" style="height:10%; width: 10%;">
+                <li class="mx-2 float-right"><i class="fa fa-user" aria-hidden="true"></i>
+                <li class="mx-2 float-right"><i class="fa fa-cog" aria-hidden="true"></i>
+                <li class="mx-2 float-right"><i class="fa fa-phone" aria-hidden="true"></i>
+                <li class="mx-2 float-right"><i class="fa fa-info" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <div style="width:20%; height:600px; margin: 0 10px 10px 10px; border-radius:30px;display:inline-block;float: left;padding:10px;" id="sidebar" class="bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div style="display:block;text-align:center;">Modes</div>
+    <br>
+    <button style="display:block;border-radius:0.7rem;text-align:center;padding:6px;margin:auto;"  id="emergency" class="modes_Btn">Critical</button>
+    <br>
+    <button style="display:block;border-radius:0.7rem;text-align:center;padding:6px;margin:auto;" id="idle" class="modes_Btn">Non-Critical</button>
+    <br>
+    <button style="display:block; border-radius:0.7rem;text-align:center;padding:6px;margin:auto;" class="modes_Btn" id = "trackerBtn">Tracker</button>
+    <br>
+      <div style="display:block;background-color: lightblue; border-radius:0.7rem;text-align:center;padding:6px;margin:auto;">
+        <input type="checkbox" id="diabetes_check" disabled> <label for="#diabetes_check">Diabetes</label>
+      </div>
+      <br>
+      <div style="display:block;background-color: lightblue; border-radius:0.7rem;text-align:center;padding:6px;margin:auto;">
+        <input type="checkbox" id="bloodPressure_check" disabled> <label for="#bloodPressure_check">High Blood Pressure</label>
+      </div>
+    </div>
+
+    <section style="height:600px;width:65%; display: flex;flex-direction: column-reverse;margin-left: 20%;margin-right:20%" class="chat-content bg-gray-100 p-2 rounded-lg shadow-xl overflow-y-auto " id="chatbox">
+        <br>
+        
+        <div class="mic-section p-2 m-2" style="position: fixed; top: 150px;right:130px">
+            <button class="p-2 bg-rose-600 rounded-xl shadow-xl" onclick="startmic()"><i class="text-gray-200 fa fa-microphone" aria-hidden="true"></i>
+            </button>
+        </div>
+    </section>
+
+
+  <script>var module = {};
+          module.exports = ''</script>
+  <script src="https://unpkg.com/audiobuffer-to-wav@1.0.0/index.js"></script>
+<script src="https://unpkg.com/lamejs@1.2.1/lame.all.js"></script>
+  <script  src="script.js"></script>
+    <script>
+      let trackerBtn = document.querySelector("#trackerBtn");
+      let idleBtn = document.querySelector("#idle")
+      let emrBtn = document.querySelector("#emergency")
+
+      function trackerClickHandler(){
+        document.querySelector("#diabetes_check").disabled = false;
+        document.querySelector("#bloodPressure_check").disabled = false;
+      }
+      function disableCheck() {
+        document.querySelector("#diabetes_check").disabled = true;
+        document.querySelector("#bloodPressure_check").disabled = true;
+      }
+
+      trackerBtn.addEventListener("click", trackerClickHandler);  
+    </script>
+</body>
+</html>
